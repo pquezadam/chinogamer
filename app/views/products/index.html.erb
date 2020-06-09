@@ -1,11 +1,19 @@
 <div class="container">
     <div class="row">
-        <% @products.each do |product| %>
+        <% @products.each_slice(4) do |row| %>
+            <% row.each do |product| %>
             <div class="col">
-                <%= product.name %>
-                <%= product.price %>
-                <%= image_tag product.photo, class: 'img-responsive' %>
+                <div class="card">
+                <%= image_tag product.photo, class: 'card-img-top' %>
+                    <div class="body">
+                    <h5> <%= product.name %> </h5>
+                    <p>  <%= product.price %> </p>
+                    <%= link_to "Comprar", "#", class: 'btn btn-success' %>
+                    </div>
+                </div>
             </div>    
+        <% end %>
+        <div class="w-100" style="margin-top:20px"> </div>
         <% end %>
     </div>    
 </div>
