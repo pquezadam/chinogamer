@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <% @products.each do |product| %>
+            <div class="col">
+                <%= product.name %>
+                <%= product.price %>
+                <%= image_tag product.photo, class: 'img-responsive' %>
+            </div>    
+        <% end %>
+    </div>    
+</div>
