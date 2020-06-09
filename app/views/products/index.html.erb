@@ -8,7 +8,7 @@
                     <div class="body">
                     <h5> <%= product.name %> </h5>
                     <p>  <%= product.price %> </p>
-                    <%= link_to "Comprar", "#", class: 'btn btn-success' %>
+                    <%= link_to "Comprar", product_orders_path(product), class: 'btn btn-success', method: :post %>
                     </div>
                 </div>
             </div>    
