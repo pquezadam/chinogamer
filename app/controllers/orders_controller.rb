@@ -10,4 +10,8 @@ class OrdersController < ApplicationController
       redirect_to products_path, alert: 'La orden no ha podido ser ingresada'
     end
   end
+
+  def index
+    @orders = current_user.orders
+  end
 end
