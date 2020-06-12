@@ -4,7 +4,11 @@ Rails.application.routes.draw do
     resources :orders, only: :create
   end
 
-  resources :orders, only: :index
+  resources :orders, only: :index do
+    collection do
+      get 'clean'
+    end
+  end
 
   root to: 'products#index'
   devise_for :users

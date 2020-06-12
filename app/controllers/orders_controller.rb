@@ -5,13 +5,23 @@ class OrdersController < ApplicationController
     @product = Product.find(params[:product_id])
     @order = Order.new(product: @product, user: current_user)
     if @order.save
-      redirect_to products_path, notice: 'La orden ha sido ingresada'
+      redirect_to products_path, notice: 'la orden ha sido ingresada'
     else
-      redirect_to products_path, alert: 'La orden no ha podido ser ingresada'
+      redirect_to product_path, alert: 'la orden no ha sido ingresada'
     end
+  end
+
+  def clean
+    @orders = Order.where(user: current_user, payed: false)
+    @orders.destroy_all
+    redirect_to orders_path, notice: 'carro vacío. '
   end
 
   def index
     @orders = current_user.orders
   end
 end
+
+
+
+

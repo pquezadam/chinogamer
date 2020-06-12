@@ -1,12 +1,36 @@
-<table class="table">
-    <% @orders.each do |order| %>
-        <tr>
-            <td> <%= order.product.name %> </td>
-            <td> <%= order.product.price %> </td>
-        </tr>    
+<div class="container">
+  <table class="table">
+    <% @orders.each do |order|%>
+      <tr>
+      <td> <%= order.product.name %> </td>
+      <td> <%= order.product.price %> </td>
+      <tr>
     <% end %>
     <tr>
-        <td> Total : </td>
-        <td> <%= @orders.map{|order| order.product.price }.sum %></td>
-    </tr>   
-</table>    
+      <td> Total : </td>
+      <td> <%= @orders.map{|order| order.product.price}.sum %></td>
+    </tr>  
+  </table>    
+
+  <%= link_to 'Limpiar carro', clean_orders_path, class: 'btn btn-outline-danger'  %>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
